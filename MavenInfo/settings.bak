@@ -1,0 +1,109 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+	http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+	<!-- Replace ${USERNAME} below with your username.
+		On unix/linux, replace C:/Users/${USERNAME} with your home dir -->
+	<localRepository>.\saam2</localRepository>
+	<interactiveMode/>
+	<usePluginRegistry/>
+	<offline/>
+	<pluginGroups>
+		<pluginGroup>org.codehaus.sonar</pluginGroup>
+	</pluginGroups>
+
+	<servers>
+		<server>
+			<id>bea.public</id>
+			<username>dev</username>
+			<password>dev5088</password>
+		</server>
+		<server>
+			<id>bea.public-snapshots</id>
+			<username>dev</username>
+			<password>dev5088</password>
+		</server>
+		<server>
+			<id>bea.release</id>
+			<username>dev</username>
+			<password>dev5088</password>
+		</server>
+		<server>
+			<id>bea.snapshot</id>
+			<username>dev</username>
+			<password>dev5088</password>
+		</server>
+	</servers>
+	<proxies/>
+	<activeProfiles/>
+	<mirrors>
+		<mirror>
+			<id>bea.public</id>
+			<url>http://nexus.arrs.arrisi.com/content/groups/public</url>
+			<mirrorOf>external:*,!bea.snapshot,!bea.release</mirrorOf>
+		</mirror>
+		<mirror>
+			<id>bea.public-snapshots</id>
+			<url>http://nexus.arrs.arrisi.com/content/groups/public-snapshots</url>
+			<mirrorOf>external:*,!bea.release</mirrorOf>
+		</mirror>
+	</mirrors>
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>bea.release</id>
+					<url>http://nexus.arrs.arrisi.com/content/repositories/releases</url>
+					<name>Beaverton Nexus Releases Repository</name>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>bea.snapshot</id>
+					<url>http://nexus.arrs.arrisi.com/content/repositories/snapshots</url>
+					<name>Beaverton Nexus Snapshots Repository</name>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<!-- never, daily, interval:X (where X is in minutes) or always Default: daily-->
+						<updatePolicy>always</updatePolicy>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>bea.public</id>
+					<url>http://nexus.arrs.arrisi.com/content/groups/public</url>
+					<name>Beaverton Nexus Public Repository</name>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>bea.public-snapshots</id>
+					<url>http://nexus.arrs.arrisi.com/content/groups/public-snapshots</url>
+					<name>Beaverton Nexus Public Snapshots Repository</name>
+					<releases>
+						<enabled>false</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+					</snapshots>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+</settings>
