@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+<!-- 	    自定义视图解析器：html
+    <bean id="htmlViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="com.jguo3.school.htmlviewresolver.htmlResourceView"/>
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".html"/>
+        <property name="order" value="0"/>
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+    </bean>
+    默认视图解析器：jsp
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="order" value="1"/>
+    </bean> -->
+    
+    <!--自定义视图解析器：html-->
+	<bean id="htmlViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	    <property name="prefix" value="/"/>
+	    <property name="suffix" value=".html"/>
+	    <property name="order" value="1"/>
+	    <property name="contentType" value="text/html;charset=UTF-8"></property>
+	</bean>
+	<!--默认视图解析器：jsp-->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	    <property name="viewClass" value="com.jguo3.school.htmlviewresolver.continueResourceView"/>
+	    <property name="prefix" value="/"/>
+	    <property name="suffix" value=".jsp"/>
+	    <property name="order" value="0"/>
+	</bean>
+
+</beans>
