@@ -33,6 +33,11 @@ public class JsonResult<E> {
 	public void setList(List<E> list) {
 		this.list = list;
 	}
+	public void setCodeAndMessage(String code, String message) {
+		this.code =Integer.valueOf(code);
+		this.message = message;
+		
+	}
 
     //setter getter toString equals&hashCode
     

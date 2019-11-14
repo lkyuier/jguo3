@@ -8,7 +8,10 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       ">
 
     <!--开启Spring注解-->
     <context:annotation-config/>
@@ -41,4 +44,21 @@
         <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    
+        <!--注册校验驱动-->
+    <mvc:annotation-driven validator="validator"/>
+    <!--校验工厂-->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+    <!--validation message 校验消息-->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="message"/>
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="useCodeAsDefaultMessage" value="false"/>
+        <property name="cacheSeconds" value="60"/>
+    </bean>
+    
+    
 </beans>
